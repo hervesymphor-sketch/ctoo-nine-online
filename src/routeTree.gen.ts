@@ -10,33 +10,180 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AProposRouteImport } from './routes/a-propos'
+import { Route as ConditionsRouteImport } from './routes/conditions'
+import { Route as ConfidentialiteRouteImport } from './routes/confidentialite'
+import { Route as DemandeRouteImport } from './routes/demande'
+import { Route as FaqRouteImport } from './routes/faq'
+import { Route as MentionsLegalesRouteImport } from './routes/mentions-legales'
+import { Route as ProfessionnelsRouteImport } from './routes/professionnels'
+import { Route as ReparationAtelierRouteImport } from './routes/reparation-atelier'
+import { Route as ReparationDomicileRouteImport } from './routes/reparation-domicile'
+import { Route as TarifsRouteImport } from './routes/tarifs'
+import { Route as ZonesInterventionRouteImport } from './routes/zones-intervention'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AProposRoute = AProposRouteImport.update({
+  id: '/a-propos',
+  path: '/a-propos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConditionsRoute = ConditionsRouteImport.update({
+  id: '/conditions',
+  path: '/conditions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConfidentialiteRoute = ConfidentialiteRouteImport.update({
+  id: '/confidentialite',
+  path: '/confidentialite',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DemandeRoute = DemandeRouteImport.update({
+  id: '/demande',
+  path: '/demande',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FaqRoute = FaqRouteImport.update({
+  id: '/faq',
+  path: '/faq',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MentionsLegalesRoute = MentionsLegalesRouteImport.update({
+  id: '/mentions-legales',
+  path: '/mentions-legales',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfessionnelsRoute = ProfessionnelsRouteImport.update({
+  id: '/professionnels',
+  path: '/professionnels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReparationAtelierRoute = ReparationAtelierRouteImport.update({
+  id: '/reparation-atelier',
+  path: '/reparation-atelier',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReparationDomicileRoute = ReparationDomicileRouteImport.update({
+  id: '/reparation-domicile',
+  path: '/reparation-domicile',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TarifsRoute = TarifsRouteImport.update({
+  id: '/tarifs',
+  path: '/tarifs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ZonesInterventionRoute = ZonesInterventionRouteImport.update({
+  id: '/zones-intervention',
+  path: '/zones-intervention',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/conditions': typeof ConditionsRoute
+  '/confidentialite': typeof ConfidentialiteRoute
+  '/demande': typeof DemandeRoute
+  '/faq': typeof FaqRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/professionnels': typeof ProfessionnelsRoute
+  '/reparation-atelier': typeof ReparationAtelierRoute
+  '/reparation-domicile': typeof ReparationDomicileRoute
+  '/tarifs': typeof TarifsRoute
+  '/zones-intervention': typeof ZonesInterventionRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/conditions': typeof ConditionsRoute
+  '/confidentialite': typeof ConfidentialiteRoute
+  '/demande': typeof DemandeRoute
+  '/faq': typeof FaqRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/professionnels': typeof ProfessionnelsRoute
+  '/reparation-atelier': typeof ReparationAtelierRoute
+  '/reparation-domicile': typeof ReparationDomicileRoute
+  '/tarifs': typeof TarifsRoute
+  '/zones-intervention': typeof ZonesInterventionRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/a-propos': typeof AProposRoute
+  '/conditions': typeof ConditionsRoute
+  '/confidentialite': typeof ConfidentialiteRoute
+  '/demande': typeof DemandeRoute
+  '/faq': typeof FaqRoute
+  '/mentions-legales': typeof MentionsLegalesRoute
+  '/professionnels': typeof ProfessionnelsRoute
+  '/reparation-atelier': typeof ReparationAtelierRoute
+  '/reparation-domicile': typeof ReparationDomicileRoute
+  '/tarifs': typeof TarifsRoute
+  '/zones-intervention': typeof ZonesInterventionRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/a-propos'
+    | '/conditions'
+    | '/confidentialite'
+    | '/demande'
+    | '/faq'
+    | '/mentions-legales'
+    | '/professionnels'
+    | '/reparation-atelier'
+    | '/reparation-domicile'
+    | '/tarifs'
+    | '/zones-intervention'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/a-propos'
+    | '/conditions'
+    | '/confidentialite'
+    | '/demande'
+    | '/faq'
+    | '/mentions-legales'
+    | '/professionnels'
+    | '/reparation-atelier'
+    | '/reparation-domicile'
+    | '/tarifs'
+    | '/zones-intervention'
+  id:
+    | '__root__'
+    | '/'
+    | '/a-propos'
+    | '/conditions'
+    | '/confidentialite'
+    | '/demande'
+    | '/faq'
+    | '/mentions-legales'
+    | '/professionnels'
+    | '/reparation-atelier'
+    | '/reparation-domicile'
+    | '/tarifs'
+    | '/zones-intervention'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AProposRoute: typeof AProposRoute
+  ConditionsRoute: typeof ConditionsRoute
+  ConfidentialiteRoute: typeof ConfidentialiteRoute
+  DemandeRoute: typeof DemandeRoute
+  FaqRoute: typeof FaqRoute
+  MentionsLegalesRoute: typeof MentionsLegalesRoute
+  ProfessionnelsRoute: typeof ProfessionnelsRoute
+  ReparationAtelierRoute: typeof ReparationAtelierRoute
+  ReparationDomicileRoute: typeof ReparationDomicileRoute
+  TarifsRoute: typeof TarifsRoute
+  ZonesInterventionRoute: typeof ZonesInterventionRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +195,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/a-propos': {
+      id: '/a-propos'
+      path: '/a-propos'
+      fullPath: '/a-propos'
+      preLoaderRoute: typeof AProposRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/conditions': {
+      id: '/conditions'
+      path: '/conditions'
+      fullPath: '/conditions'
+      preLoaderRoute: typeof ConditionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/confidentialite': {
+      id: '/confidentialite'
+      path: '/confidentialite'
+      fullPath: '/confidentialite'
+      preLoaderRoute: typeof ConfidentialiteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/demande': {
+      id: '/demande'
+      path: '/demande'
+      fullPath: '/demande'
+      preLoaderRoute: typeof DemandeRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/faq': {
+      id: '/faq'
+      path: '/faq'
+      fullPath: '/faq'
+      preLoaderRoute: typeof FaqRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mentions-legales': {
+      id: '/mentions-legales'
+      path: '/mentions-legales'
+      fullPath: '/mentions-legales'
+      preLoaderRoute: typeof MentionsLegalesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/professionnels': {
+      id: '/professionnels'
+      path: '/professionnels'
+      fullPath: '/professionnels'
+      preLoaderRoute: typeof ProfessionnelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reparation-atelier': {
+      id: '/reparation-atelier'
+      path: '/reparation-atelier'
+      fullPath: '/reparation-atelier'
+      preLoaderRoute: typeof ReparationAtelierRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reparation-domicile': {
+      id: '/reparation-domicile'
+      path: '/reparation-domicile'
+      fullPath: '/reparation-domicile'
+      preLoaderRoute: typeof ReparationDomicileRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tarifs': {
+      id: '/tarifs'
+      path: '/tarifs'
+      fullPath: '/tarifs'
+      preLoaderRoute: typeof TarifsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/zones-intervention': {
+      id: '/zones-intervention'
+      path: '/zones-intervention'
+      fullPath: '/zones-intervention'
+      preLoaderRoute: typeof ZonesInterventionRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AProposRoute: AProposRoute,
+  ConditionsRoute: ConditionsRoute,
+  ConfidentialiteRoute: ConfidentialiteRoute,
+  DemandeRoute: DemandeRoute,
+  FaqRoute: FaqRoute,
+  MentionsLegalesRoute: MentionsLegalesRoute,
+  ProfessionnelsRoute: ProfessionnelsRoute,
+  ReparationAtelierRoute: ReparationAtelierRoute,
+  ReparationDomicileRoute: ReparationDomicileRoute,
+  TarifsRoute: TarifsRoute,
+  ZonesInterventionRoute: ZonesInterventionRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
