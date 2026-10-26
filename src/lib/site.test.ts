@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CONTACT, getSolution, nearestCommune } from "./site";
+import { CONTACT, getSolution, nearestCommune, whatsappLink } from "./site";
 
 describe("coordonnées confirmées", () => {
   it("utilise le téléphone +596596492021", () => {
@@ -16,6 +16,10 @@ describe("coordonnées confirmées", () => {
   });
   it("indique l'adresse de la ZI de Champigny à Ducos", () => {
     expect(CONTACT.address).toBe("Zone Industrielle de Champigny, Immeuble Laguerre, 97224 Ducos, Martinique");
+  });
+  it("envoie la demande WhatsApp au +596596492021", () => {
+    expect(CONTACT.whatsapp).toBe("596596492021");
+    expect(whatsappLink("Bonjour").startsWith("https://wa.me/596596492021?text=")).toBe(true);
   });
 });
 
