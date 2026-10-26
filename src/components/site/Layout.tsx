@@ -4,6 +4,9 @@ import { Menu, Phone, MessageCircle, Wrench, X, MapPin, Clock, Mail } from "luci
 import logo from "@/assets/logo-ctoo9.png.asset.json";
 import { CONTACT, whatsappLink } from "@/lib/site";
 
+// The asset endpoint belongs to Lovable, not the host serving this site.
+const logoSrc = new URL(logo.url, "https://id-preview--e02d6df3-7a7f-4887-b407-581cf9c795de.lovable.app").href;
+
 const NAV = [
   { to: "/reparation-domicile", label: "À domicile" },
   { to: "/reparation-atelier", label: "En atelier" },
@@ -20,7 +23,7 @@ export function Header() {
     <header className="sticky top-0 z-40 bg-ink text-ink-foreground">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3">
         <Link to="/" aria-label="C'TOO 9 — accueil" className="shrink-0">
-          <img src={logo.url} alt="C'TOO 9" className="h-10 w-auto md:h-12" width={1666} height={516} />
+          <img src={logoSrc} alt="C'TOO 9" className="h-10 w-auto md:h-12" width={1666} height={516} />
         </Link>
         <nav className="hidden items-center gap-1 xl:flex" aria-label="Navigation principale">
           {NAV.map((n) => (
@@ -93,7 +96,7 @@ export function Footer() {
     <footer className="bg-ink pb-24 text-ink-foreground md:pb-0">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 md:grid-cols-4">
         <div className="md:col-span-1">
-          <img src={logo.url} alt="C'TOO 9" className="h-12 w-auto" loading="lazy" width={1666} height={516} />
+          <img src={logoSrc} alt="C'TOO 9" className="h-12 w-auto" loading="lazy" width={1666} height={516} />
           <p className="mt-4 text-sm text-ink-muted">
             Réparation d'électroménager toutes marques en Martinique, à domicile ou en atelier.
           </p>
