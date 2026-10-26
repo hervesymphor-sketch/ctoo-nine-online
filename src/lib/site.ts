@@ -1,14 +1,12 @@
-// Coordonnées provisoires : à remplacer par les vraies données de C'TOO 9.
+// Téléphone et horaires confirmés ; WhatsApp, e-mail et adresse restent provisoires.
 export const CONTACT = {
-  phoneDisplay: "0696 00 00 00",
-  phoneHref: "tel:+596696000000",
+  phoneDisplay: "0596 49 20 21",
+  phoneHref: "tel:+596596492021",
   whatsapp: "596696000000",
   email: "contact@ctoo9.fr",
   address: "Zone artisanale, 97224 Ducos, Martinique",
   hours: [
-    { d: "Lundi – Vendredi", h: "8h00 – 17h00" },
-    { d: "Samedi", h: "8h00 – 12h00" },
-    { d: "Dimanche", h: "Fermé" },
+    { d: "Lundi – Vendredi", h: "8h00 – 16h30" },
   ],
 };
 
