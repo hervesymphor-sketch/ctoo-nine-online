@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Clock, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { PageHero, Section } from "@/components/site/Layout";
+import { MapEmbed } from "@/components/site/MapEmbed";
 import { RepairForm } from "@/components/site/RepairForm";
 import { CONTACT, whatsappLink } from "@/lib/site";
 
@@ -41,6 +42,7 @@ function Demande() {
               {CONTACT.hours.map((h) => <p key={h.d} className="flex gap-2"><Clock className="h-4 w-4" /> {h.d} : {h.h}</p>)}
             </div>
           </div>
+          <MapEmbed />
         </aside>
       </Section>
     </>
