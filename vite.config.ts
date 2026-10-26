@@ -6,10 +6,29 @@
 // You can pass additional config via defineConfig({ vite: { ... }, etc... }) if needed.
 import { defineConfig } from "@lovable.dev/vite-tanstack-config";
 
+// Every page is prerendered to static HTML so the site can be hosted anywhere
+// (Netlify, OVH, Apache…) from the client build folder, without a server.
+const PAGES = [
+  "/",
+  "/reparation-domicile",
+  "/reparation-atelier",
+  "/tarifs",
+  "/professionnels",
+  "/zones-intervention",
+  "/faq",
+  "/a-propos",
+  "/demande",
+  "/mentions-legales",
+  "/confidentialite",
+  "/conditions",
+];
+
 export default defineConfig({
   tanstackStart: {
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    pages: PAGES.map((path) => ({ path })),
+    prerender: { enabled: true, autoStaticPathsDiscovery: false },
   },
 });
