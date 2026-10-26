@@ -1,9 +1,9 @@
-// Téléphone et horaires confirmés ; WhatsApp, e-mail et adresse restent provisoires.
+// Téléphone, horaires et e-mail confirmés ; WhatsApp et adresse restent provisoires.
 export const CONTACT = {
   phoneDisplay: "0596 49 20 21",
   phoneHref: "tel:+596596492021",
   whatsapp: "596696000000",
-  email: "contact@ctoo9.fr",
+  email: "contact.mq@ctoo.fr",
   address: "Zone artisanale, 97224 Ducos, Martinique",
   hours: [
     { d: "Lundi – Vendredi", h: "8h00 – 16h30" },
