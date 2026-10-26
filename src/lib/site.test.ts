@@ -14,6 +14,9 @@ describe("coordonnées confirmées", () => {
   it("utilise l'e-mail contact.mq@ctoo.fr", () => {
     expect(CONTACT.email).toBe("contact.mq@ctoo.fr");
   });
+  it("indique l'adresse de la ZI de Champigny à Ducos", () => {
+    expect(CONTACT.address).toBe("Zone Industrielle de Champigny, Immeuble Laguerre, 97224 Ducos, Martinique");
+  });
 });
 
 describe("sélecteur d'appareil", () => {
