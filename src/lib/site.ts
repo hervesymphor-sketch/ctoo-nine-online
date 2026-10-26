@@ -1,8 +1,8 @@
-// Téléphone, horaires, e-mail et adresse confirmés ; WhatsApp et mentions légales restent à compléter.
+// Téléphone, horaires, e-mail, adresse et WhatsApp confirmés ; mentions légales restent à compléter.
 export const CONTACT = {
   phoneDisplay: "0596 49 20 21",
   phoneHref: "tel:+596596492021",
-  whatsapp: "596696000000",
+  whatsapp: "596596492021",
   email: "contact.mq@ctoo.fr",
   address: "Zone Industrielle de Champigny, Immeuble Laguerre, 97224 Ducos, Martinique",
   hours: [
