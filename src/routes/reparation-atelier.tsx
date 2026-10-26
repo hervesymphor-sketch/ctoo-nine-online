@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import atelier from "@/assets/atelier.jpg";
 import { CtaBand, PageHero, Prose, Section } from "@/components/site/Layout";
+import { MapEmbed } from "@/components/site/MapEmbed";
 import { CONTACT } from "@/lib/site";
 
 export const Route = createFileRoute("/reparation-atelier")({
@@ -51,6 +52,7 @@ function Page() {
             <p className="mt-2 text-muted-foreground">{CONTACT.address}</p>
             <ul className="mt-3 text-sm">{CONTACT.hours.map((h) => <li key={h.d}><strong>{h.d}</strong> : {h.h}</li>)}</ul>
           </div>
+          <MapEmbed />
         </aside>
       </Section>
       <CtaBand label="Préparer mon dépôt" />

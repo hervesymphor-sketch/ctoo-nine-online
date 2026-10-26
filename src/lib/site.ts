@@ -100,6 +100,64 @@ export function findZone(commune: string): Zone | undefined {
   return ZONES.find((z) => z.communes.includes(commune));
 }
 
+// Coordonnées approximatives des centres de communes, pour la détection GPS du visiteur.
+// Données indicatives : la commune annoncée reste à confirmer par le technicien.
+export const COMMUNE_COORDS: Record<string, { lat: number; lng: number }> = {
+  "Fort-de-France": { lat: 14.6036, lng: -61.0678 },
+  "Le Lamentin": { lat: 14.6097, lng: -60.9996 },
+  Schœlcher: { lat: 14.6115, lng: -61.1025 },
+  "Saint-Joseph": { lat: 14.6667, lng: -61.0333 },
+  Ducos: { lat: 14.5747, lng: -60.9711 },
+  "Rivière-Salée": { lat: 14.5286, lng: -60.9722 },
+  "Trois-Îlets": { lat: 14.5408, lng: -61.0358 },
+  "Le Robert": { lat: 14.6786, lng: -60.9417 },
+  "La Trinité": { lat: 14.7367, lng: -60.9581 },
+  "Le Gros-Morne": { lat: 14.7083, lng: -60.9667 },
+  "Sainte-Marie": { lat: 14.7856, lng: -60.9942 },
+  "Le Marigot": { lat: 14.8333, lng: -61.0167 },
+  "Le Lorrain": { lat: 14.8389, lng: -61.0522 },
+  "Basse-Pointe": { lat: 14.8739, lng: -61.1211 },
+  "Le François": { lat: 14.6144, lng: -60.9017 },
+  "Le Vauclin": { lat: 14.5458, lng: -60.8392 },
+  "Le Marin": { lat: 14.4717, lng: -60.8686 },
+  "Sainte-Luce": { lat: 14.4756, lng: -60.9431 },
+  "Rivière-Pilote": { lat: 14.4906, lng: -60.9208 },
+  "Saint-Esprit": { lat: 14.5556, lng: -60.9239 },
+  "Le Diamant": { lat: 14.4797, lng: -61.0247 },
+  "Sainte-Anne": { lat: 14.4342, lng: -60.8822 },
+  "Case-Pilote": { lat: 14.6542, lng: -61.1322 },
+  Bellefontaine: { lat: 14.6767, lng: -61.1456 },
+  "Le Carbet": { lat: 14.7083, lng: -61.1836 },
+  "Saint-Pierre": { lat: 14.7417, lng: -61.1756 },
+  "Le Prêcheur": { lat: 14.8106, lng: -61.2142 },
+  "Le Morne-Rouge": { lat: 14.6903, lng: -61.1364 },
+};
+
+function haversineKm(a: { lat: number; lng: number }, b: { lat: number; lng: number }): number {
+  const R = 6371;
+  const dLat = ((b.lat - a.lat) * Math.PI) / 180;
+  const dLng = ((b.lng - a.lng) * Math.PI) / 180;
+  const s =
+    Math.sin(dLat / 2) ** 2 +
+    Math.cos((a.lat * Math.PI) / 180) * Math.cos((b.lat * Math.PI) / 180) * Math.sin(dLng / 2) ** 2;
+  return 2 * R * Math.asin(Math.sqrt(s));
+}
+
+/** Commune la plus proche d'une position GPS, avec sa zone et la distance indicative. */
+export function nearestCommune(
+  lat: number,
+  lng: number,
+): { commune: string; zone: Zone; distanceKm: number } | null {
+  let best: { commune: string; zone: Zone; distanceKm: number } | null = null;
+  for (const [commune, coord] of Object.entries(COMMUNE_COORDS)) {
+    const zone = findZone(commune);
+    if (!zone) continue;
+    const distanceKm = haversineKm(coord, { lat, lng });
+    if (!best || distanceKm < best.distanceKm) best = { commune, zone, distanceKm };
+  }
+  return best;
+}
+
 export const FAQ = [
   { q: "Quels appareils réparez-vous ?", a: "Le gros électroménager (lave-linge, sèche-linge, réfrigérateur, congélateur, lave-vaisselle, four, plaque, encastrable) et le petit électroménager (micro-ondes, cafetière, aspirateur, robot…), toutes marques." },
   { q: "Venez-vous à domicile ?", a: "Oui pour le gros électroménager et l'encastrable, dans les communes desservies. Le petit électroménager se dépose à l'atelier." },

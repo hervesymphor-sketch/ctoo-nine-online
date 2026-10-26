@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { CONTACT, getSolution } from "./site";
+import { CONTACT, getSolution, nearestCommune } from "./site";
 
 describe("coordonnées confirmées", () => {
   it("utilise le téléphone +596596492021", () => {
@@ -25,5 +25,25 @@ describe("sélecteur d'appareil", () => {
   });
   it("oriente un petit appareil (micro-ondes) vers l'atelier", () => {
     expect(getSolution("micro-ondes")?.mode).toBe("atelier");
+  });
+});
+
+describe("détection GPS de la commune", () => {
+  it("reconnaît Ducos depuis la position de l'atelier", () => {
+    const n = nearestCommune(14.5747, -60.9711);
+    expect(n?.commune).toBe("Ducos");
+    expect(n?.zone.name).toBe("Centre");
+    expect(n?.zone.status).toBe("desservie");
+  });
+  it("reconnaît Saint-Pierre dans le nord caraïbe", () => {
+    expect(nearestCommune(14.7417, -61.1756)?.commune).toBe("Saint-Pierre");
+  });
+  it("reconnaît Le Marin dans le sud", () => {
+    expect(nearestCommune(14.4717, -60.8686)?.commune).toBe("Le Marin");
+  });
+  it("renvoie toujours une commune de la liste", () => {
+    const n = nearestCommune(14.5, -61.0);
+    expect(n).not.toBeNull();
+    expect(n?.commune.length).toBeGreaterThan(0);
   });
 });
