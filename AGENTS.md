@@ -8,3 +8,6 @@
 > Commits you push to the connected branch sync back to Lovable and show up in
 > the editor, so keep the branch in a working state.
 <!-- LOVABLE:END -->
+
+<!-- Règles techniques -->
+- Géolocalisation : détection de commune 100 % côté client (coordonnées des communes dans `src/lib/site.ts`, calcul de distance local) — aucun appel facturable Google Maps pour la détection. La carte utilise Maps Embed via la clé navigateur du connecteur Google Maps ; hors domaine Lovable, `MapEmbed` affiche un lien Google Maps au lieu de l'iframe.
