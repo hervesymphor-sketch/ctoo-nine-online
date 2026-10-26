@@ -35,7 +35,7 @@ function Demande() {
           <a href={CONTACT.phoneHref} className="btn btn-ink w-full"><Phone className="h-5 w-5" /> {CONTACT.phoneDisplay}</a>
           <a href={whatsappLink()} target="_blank" rel="noreferrer" className="btn btn-whatsapp w-full"><MessageCircle className="h-5 w-5" /> WhatsApp</a>
           <div className="rounded-2xl border-2 border-ink bg-card p-5 text-sm">
-            <p className="flex gap-2"><Mail className="h-4 w-4" /> {CONTACT.email}</p>
+            <p className="flex gap-2"><Mail className="h-4 w-4" /> <a className="underline underline-offset-2" href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a></p>
             <p className="mt-2 flex gap-2"><MapPin className="h-4 w-4" /> {CONTACT.address}</p>
             <div className="mt-3 border-t pt-3">
               {CONTACT.hours.map((h) => <p key={h.d} className="flex gap-2"><Clock className="h-4 w-4" /> {h.d} : {h.h}</p>)}
