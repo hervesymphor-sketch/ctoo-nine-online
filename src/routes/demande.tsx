@@ -8,8 +8,8 @@ type Search = { appareil?: string; profil?: "pro" };
 
 export const Route = createFileRoute("/demande")({
   validateSearch: (s: Record<string, unknown>): Search => ({
-    appareil: typeof s.appareil === "string" ? s.appareil : undefined,
-    profil: s.profil === "pro" ? "pro" : undefined,
+    appareil: typeof s["appareil"] === "string" ? s["appareil"] : undefined,
+    profil: s["profil"] === "pro" ? "pro" : undefined,
   }),
   head: () => ({
     meta: [
@@ -30,7 +30,7 @@ function Demande() {
         Remplissez ce formulaire en moins de 2 minutes, ou contactez-nous directement.
       </PageHero>
       <Section className="grid gap-10 lg:grid-cols-[1fr_22rem]">
-        <RepairForm defaultAppliance={appareil} defaultProfil={profil ?? "particulier"} />
+        <RepairForm defaultAppliance={appareil ?? ""} defaultProfil={profil ?? "particulier"} />
         <aside className="space-y-4">
           <a href={CONTACT.phoneHref} className="btn btn-ink w-full"><Phone className="h-5 w-5" /> {CONTACT.phoneDisplay}</a>
           <a href={whatsappLink()} target="_blank" rel="noreferrer" className="btn btn-whatsapp w-full"><MessageCircle className="h-5 w-5" /> WhatsApp</a>
