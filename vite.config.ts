@@ -13,5 +13,8 @@ export default defineConfig({
     // Redirect TanStack Start's bundled server entry to src/server.ts (our SSR error wrapper).
     // nitro/vite builds from this
     server: { entry: "server" },
+    // Pages are rendered on request by the host's server; build-time
+    // prerendering breaks on non-Cloudflare targets such as Netlify.
+    prerender: { enabled: false },
   },
 });
