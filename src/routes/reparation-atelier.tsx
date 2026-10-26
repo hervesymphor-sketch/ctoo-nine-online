@@ -49,7 +49,6 @@ function Page() {
           <div className="rounded-2xl border-2 border-ink bg-card p-5">
             <h3 className="text-xl font-bold">Adresse & horaires</h3>
             <p className="mt-2 text-muted-foreground">{CONTACT.address}</p>
-            <p className="text-sm text-muted-foreground">Parking devant l'atelier.</p>
             <ul className="mt-3 text-sm">{CONTACT.hours.map((h) => <li key={h.d}><strong>{h.d}</strong> : {h.h}</li>)}</ul>
           </div>
         </aside>
