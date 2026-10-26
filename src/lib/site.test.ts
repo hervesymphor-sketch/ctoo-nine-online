@@ -11,6 +11,9 @@ describe("coordonnées confirmées", () => {
       { d: "Lundi – Vendredi", h: "8h00 – 16h30" },
     ]);
   });
+  it("utilise l'e-mail contact.mq@ctoo.fr", () => {
+    expect(CONTACT.email).toBe("contact.mq@ctoo.fr");
+  });
 });
 
 describe("sélecteur d'appareil", () => {
