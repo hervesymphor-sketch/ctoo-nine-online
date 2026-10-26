@@ -4,7 +4,7 @@ import { PageHero, Section } from "@/components/site/Layout";
 import { RepairForm } from "@/components/site/RepairForm";
 import { CONTACT, whatsappLink } from "@/lib/site";
 
-type Search = { appareil?: string; profil?: "pro" };
+type Search = { appareil?: string | undefined; profil?: "pro" | undefined };
 
 export const Route = createFileRoute("/demande")({
   validateSearch: (s: Record<string, unknown>): Search => ({

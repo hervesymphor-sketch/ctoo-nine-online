@@ -15,16 +15,16 @@ export function RepairForm({ defaultAppliance = "", defaultProfil = "particulier
     const fd = new FormData(e.currentTarget);
     const v = (k: string) => String(fd.get(k) ?? "").trim();
     const errs: Errors = {};
-    if (!v("appareil")) errs.appareil = "Choisissez un appareil.";
-    if (v("panne").length < 5) errs.panne = "Décrivez la panne en quelques mots.";
-    if (!v("commune")) errs.commune = "Indiquez votre commune.";
-    if (!v("nom")) errs.nom = "Indiquez votre nom.";
-    if (!/^[+0-9 .]{10,}$/.test(v("tel"))) errs.tel = "Numéro de téléphone invalide.";
-    if (v("email") && !/^\S+@\S+\.\S+$/.test(v("email"))) errs.email = "E-mail invalide.";
-    if (!fd.get("rgpd")) errs.rgpd = "Votre accord est nécessaire pour traiter la demande.";
+    if (!v("appareil")) errs["appareil"] = "Choisissez un appareil.";
+    if (v("panne").length < 5) errs["panne"] = "Décrivez la panne en quelques mots.";
+    if (!v("commune")) errs["commune"] = "Indiquez votre commune.";
+    if (!v("nom")) errs["nom"] = "Indiquez votre nom.";
+    if (!/^[+0-9 .]{10,}$/.test(v("tel"))) errs["tel"] = "Numéro de téléphone invalide.";
+    if (v("email") && !/^\S+@\S+\.\S+$/.test(v("email"))) errs["email"] = "E-mail invalide.";
+    if (!fd.get("rgpd")) errs["rgpd"] = "Votre accord est nécessaire pour traiter la demande.";
     const files = (fd.getAll("photos") as File[]).filter((f) => f.size > 0);
-    if (files.length > 3) errs.photos = "3 photos maximum.";
-    if (files.some((f) => f.size > 10 * 1024 * 1024)) errs.photos = "10 Mo maximum par photo.";
+    if (files.length > 3) errs["photos"] = "3 photos maximum.";
+    if (files.some((f) => f.size > 10 * 1024 * 1024)) errs["photos"] = "10 Mo maximum par photo.";
     setErrors(errs);
     if (Object.keys(errs).length) return;
 

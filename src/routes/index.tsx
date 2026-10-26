@@ -62,7 +62,7 @@ function Index() {
             </div>
           </div>
         </div>
-        <div className="h-48 md:h-28" />
+        <div className="h-48 lg:h-6" />
       </section>
 
       {/* Bandeau infos clés */}
